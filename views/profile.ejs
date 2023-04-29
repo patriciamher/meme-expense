@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <title>21 Savage Fan Site</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+  <div class="page-header text-center">
+      <h1><span class="fa fa-calculator"></span> Keep track of you expenses here:</h1>
+      <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+  </div>
+
+  <div class="row">
+
+      <!-- LOCAL INFORMATION -->
+      <div class="col-sm-6">
+          <div class="well">
+      
+              <h2>Track Here</h2>
+        
+              <form action="/messages" method="POST">
+                <input type="text" placeholder="Name" name="name">
+                <input type="number" placeholder="Amount" name="amount">
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+
+          </div>
+      </div>
+
+      <div class="col-sm-6">
+        <h3>Meme</h3>
+
+        <ul class="messages">
+        <% for(var i=0; i <messages.length; i++) {%>
+          <li class="message">
+            <span><%= messages[i].name %> - $<%= messages[i].amount %></span>
+            <% if(messages[i].amount <= 5) {%>
+              <p id="gif"><iframe class="hidden" width="250px" height="250px" src="https://giphy.com/embed/tIeCLkB8geYtW" width="480" height="378" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/shaun-the-sheep-movie-not-my-gif-2016-oscar-nominations-tIeCLkB8geYtW"></a></p>             
+            <% } else if(messages[i].amount <= 20){%> 
+              <p id="gif"><iframe class="hidden" width="250px" height="250px" src="https://giphy.com/embed/BEob5qwFkSJ7G" width="480" height="355" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/spongebob-squarepants-sad-crying-BEob5qwFkSJ7G"></a></p>
+            <% } else if(messages[i].amount <= 50) {%>
+              <p id="gif"><iframe class="hidden" width="250px" height="250px" src="https://giphy.com/embed/5mWL7h1X9lQeRbUCTu" width="480" height="266" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/rupaulsdragrace-episode-1-rupauls-drag-race-5mWL7h1X9lQeRbUCTu"></a></p>
+            <% } else if(messages[i].amount > 50) {%>
+              <p id="gif"></p>
+            <% } %>
+          </li>
+        <% } %>
+        </ul>
+  </div>
+
+
+  <script src="main.js"></script>
+
+</body>
+</html>
